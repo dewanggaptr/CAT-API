@@ -23,10 +23,10 @@ class Category extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    // public function product(): HasMany
-    // {
-    //     return $this->hasMany(Product::class);
-    // }
+    public function product()
+    {
+        return $this->hasMany(Product::class);
+    }
 
     // protected $table = 'categories';
 }
