@@ -25,7 +25,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required'
+            'name' => 'required|string|max:30'
         ]);
 
         if ($validator->fails()) {
@@ -35,7 +35,7 @@ class CategoryController extends Controller
         $category = Category::create([
             'name' => $request->name
         ]);
-        
+
         return new ApplicationResource(true, 'category created', $category);
     }
 
@@ -67,14 +67,14 @@ class CategoryController extends Controller
 
         return new ApplicationResource(true, 'category updated', $category);
     }
-    
+
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Category $category)
     {
         $category->delete();
-        
+
         return new ApplicationResource(true, 'category deleted', null);
     }
 }
