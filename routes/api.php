@@ -23,4 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // Route::get('categories', [CategoryController::class, 'index']);
 Route::resource('category', CategoryController::class);
+Route::get('/sorted', [CategoryController::class, 'sortByProductCount']);
+
 Route::resource('product', ProductController::class);
+Route::get('/sort', [ProductController::class, 'sortByPrice']);
