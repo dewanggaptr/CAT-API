@@ -19,6 +19,12 @@ class CategoryController extends Controller
         return new ApplicationResource(true, 'list categories data', $categories);
     }
 
+    public function sortByProductCount()
+    {
+        $categories = Category::withCount('product')->orderBy('product_count', 'desc')->get();
+        return new ApplicationResource(true, 'list categories data', $categories);
+    }
+
     /**
      * Store a newly created resource in storage.
      */
