@@ -21,6 +21,13 @@ class ProductController extends Controller
         return new ApplicationResource(true, 'list products data', $products->load('category'));
     }
 
+    public function sortByPrice()
+    {
+        $products = Product::orderBy('price', 'desc')->get();
+
+        return new ApplicationResource(true, 'sorted by expensive price', $products->load('category'));
+    }
+
     /**
      * Store a newly created resource in storage.
      */
