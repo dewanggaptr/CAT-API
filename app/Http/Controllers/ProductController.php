@@ -18,7 +18,7 @@ class ProductController extends Controller
     {
         $products = Product::all();
 
-        return new ApplicationResource(true, 'list products data', $products->load('category'));
+        return new ApplicationResource(true, 'list products data', $products->load('category')->load('productAsset'));
     }
 
     public function sortByPrice()
@@ -60,7 +60,7 @@ class ProductController extends Controller
     public function show(Product $product)
     {
 
-        return new ApplicationResource(true, 'product data found', $product->load('category'));
+        return new ApplicationResource(true, 'product data found', $product->load('category')->load('productAsset'));
     }
 
 
