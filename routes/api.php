@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductAssetController;
 use App\Http\Controllers\ProductController;
 
 /*
@@ -27,3 +28,5 @@ Route::get('/sorted', [CategoryController::class, 'sortByProductCount']);
 
 Route::resource('product', ProductController::class);
 Route::get('/sort', [ProductController::class, 'sortByPrice']);
+
+Route::resource('asset', ProductAssetController::class);
