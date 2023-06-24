@@ -35,14 +35,15 @@ class ProductAssetController extends Controller
         }
 
         $image = $request->file('image');
-        $image->storeAs('public/product_assets', $image->hashName());
+        $fileName = $image->getClientOriginalName();
+        $image->storeAs('public/product_assets', $fileName);
 
         $asset = ProductAssets::create([
             'product_id' => $request->product_id,
-            'image' => $image->hashName()
+            'image' => $image->getClientOriginalName()
         ]);
 
-        return new ApplicationResource(true, 'assets created', $asset->load('product'));
+        return new ApplicationResource(true, 'assets uploaded', $asset->load('product'));
     }
 
     /**
