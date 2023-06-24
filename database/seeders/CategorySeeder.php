@@ -24,7 +24,7 @@ class CategorySeeder extends Seeder
                 "name" => "Fashion Wanita"
             ],
             [
-                "name" => "Handphoen & Tablet"
+                "name" => "Handphone & Tablet"
             ],
             [
                 "name" => "Olahraga"
