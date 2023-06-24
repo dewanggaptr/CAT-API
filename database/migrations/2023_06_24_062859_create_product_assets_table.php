@@ -12,10 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('product_assets', function (Blueprint $table) {
-            $table->increments('id');
-            $table->smallInteger('product_id');
+            $table->id();
+            $table->unsignedBigInteger('product_id');
             $table->text('image');
             $table->timestamps();
+
+            $table->foreign('product_id')->references('id')->on('products');
         });
     }
 
